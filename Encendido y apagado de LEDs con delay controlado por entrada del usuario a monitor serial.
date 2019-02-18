@@ -1,0 +1,51 @@
+  int ledv = 8;
+  int leda = 10;
+  int ledr = 12;
+  int T1;
+  int T2;
+  int T3;
+  int x = 0;
+
+
+void setup() {
+  Serial.begin (9600);
+  
+  Serial.println ("Cuanto tiempo para led verde?");
+  while(Serial.available() == 0);
+
+T1 = Serial.parseInt();
+pinMode(ledv, OUTPUT);
+
+
+  Serial.println ("Cuanto tiempo para led amarillo?");
+  while(Serial.available() == 0);
+
+T2 = Serial.parseInt();
+pinMode(leda, OUTPUT);
+
+
+  Serial.println ("Cuanto tiempo para led rojo?");
+  while(Serial.available() == 0);
+
+T3 = Serial.parseInt();
+pinMode(ledr, OUTPUT);
+
+}
+
+
+void loop() {
+  digitalWrite (ledv, HIGH);
+   delay (T1);
+  digitalWrite (ledv, LOW);
+   delay (T1);
+
+  digitalWrite (leda, HIGH);
+   delay (T2);
+  digitalWrite (leda, LOW);
+   delay (T2);
+
+  digitalWrite (ledr, HIGH);
+   delay (T3);
+  digitalWrite (ledr, LOW);
+   delay (T3);
+}
